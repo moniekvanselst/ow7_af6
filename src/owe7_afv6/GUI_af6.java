@@ -5,6 +5,8 @@
  */
 package owe7_afv6;
 
+import com.sun.xml.internal.ws.util.*;
+
 /**
  *
  * @author van Selst
@@ -74,6 +76,7 @@ public class GUI_af6 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String sequentie = jTextArea1.getText();
+        getGC(sequentie);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -111,6 +114,26 @@ public class GUI_af6 extends javax.swing.JFrame {
         });
     }
 
+    public float getGC(String sequentie) {
+        long aantalG = 0;
+        long aantalC = 0;
+        float gcPercentage;
+
+        for (int i = 0; i < sequentie.length(); i++) {
+            if (Character.toString(sequentie.charAt(i)).matches("G")) {
+                aantalG++;
+            }
+            if (Character.toString(sequentie.charAt(i)).matches("C")) {
+                aantalC++;
+            }
+        }
+        gcPercentage = (aantalG+aantalC)*100/sequentie.length();
+        System.out.println(aantalG);
+        System.out.println(aantalC);
+        System.out.println(gcPercentage);
+        return gcPercentage;}
+        
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -150,10 +150,12 @@ public class GUI_af6 extends javax.swing.JFrame {
     
     public void gcHTML(float gcPercentage) throws FileNotFoundException, UnsupportedEncodingException{
     PrintWriter writer = new PrintWriter("afvink6.html","UTF-8");
-    String bestandinhoud = "<!DOCTYPE html><html><head></head><body><p> gc percentage sequentie: ";
+    String bestandinhoud = "<html><head></head><body STYLE=\"background-color: powderblue\">\n" +
+"        <p STYLE=\"text-align: justify; line-height: 50px; font-family: Bookman Old Style, sans-serif; font-size: 50px; background-color:powderblue\"> gc percentage sequentie: ";
     writer.println(bestandinhoud);
     writer.println(gcPercentage);
     writer.println("</p></body></html>");
+    writer.close();
     }
         
         

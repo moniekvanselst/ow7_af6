@@ -6,6 +6,11 @@
 package owe7_afv6;
 
 import com.sun.xml.internal.ws.util.*;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 /**
  *
@@ -132,6 +137,14 @@ public class GUI_af6 extends javax.swing.JFrame {
         System.out.println(aantalC);
         System.out.println(gcPercentage);
         return gcPercentage;}
+    
+    public void gcHTML(float gcPercentage) throws FileNotFoundException, UnsupportedEncodingException{
+    PrintWriter writer = new PrintWriter("afvink6.html","UTF-8");
+    String bestandinhoud = "<!DOCTYPE html><html><head></head><body><h1> gc percentage sequentie: ";
+    writer.println(bestandinhoud);
+    writer.println(gcPercentage);
+    writer.println("</h1></body></html>");
+    }
         
         
     // Variables declaration - do not modify//GEN-BEGIN:variables

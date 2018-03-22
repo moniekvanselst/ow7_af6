@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -81,7 +83,15 @@ public class GUI_af6 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String sequentie = jTextArea1.getText();
-        getGC(sequentie);
+        float gcPercentage = getGC(sequentie);
+        try {
+            gcHTML(gcPercentage);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUI_af6.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(GUI_af6.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -140,10 +150,10 @@ public class GUI_af6 extends javax.swing.JFrame {
     
     public void gcHTML(float gcPercentage) throws FileNotFoundException, UnsupportedEncodingException{
     PrintWriter writer = new PrintWriter("afvink6.html","UTF-8");
-    String bestandinhoud = "<!DOCTYPE html><html><head></head><body><h1> gc percentage sequentie: ";
+    String bestandinhoud = "<!DOCTYPE html><html><head></head><body><p> gc percentage sequentie: ";
     writer.println(bestandinhoud);
     writer.println(gcPercentage);
-    writer.println("</h1></body></html>");
+    writer.println("</p></body></html>");
     }
         
         
